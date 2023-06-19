@@ -1,15 +1,18 @@
 package io.reeda.api;
 
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/api")
 public class BooksController {
 
-    @GetMapping("api/books")
-    public String getBooks() {
-        return "No books available yet";
+    @GetMapping("/books")
+    public ResponseEntity<String> getBooks() {
+        String response = "No books available yet";
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }
