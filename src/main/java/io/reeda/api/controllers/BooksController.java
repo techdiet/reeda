@@ -22,4 +22,9 @@ public class BooksController {
         this.bookService = bookService;
     }
 
+    @GetMapping("/{isbn}")
+    public ResponseEntity<Optional<Book>> searchByIsbn(@PathVariable String isbn){
+        Optional<Book> book = bookService.searchByIsbn(isbn);
+        return ResponseEntity.ok(book);
+    }
 }
