@@ -22,4 +22,9 @@ public class BooksController {
         this.bookService = bookService;
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Optional<Book>> getSingleBook(@PathVariable Long id){
+        Optional<Book> book = bookService.getSingleBook(id);
+        return ResponseEntity.ok(book);
+    }
 }
